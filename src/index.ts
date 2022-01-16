@@ -1,9 +1,13 @@
-import { Request, Response } from "express"
 import app from "./app"
-import { signup } from "./endpoints/signup"
+import { bandRouter } from "./routes/bandRouter"
+import { presentationRouter } from "./routes/presentationRouter"
+import { useRouter } from "./routes/userRouter"
 
-app.get("/", (req:Request, res:Response) => {
-    console.log("Hello world")
-})
 
-app.post("/users",signup)
+
+app.use("/users", useRouter)
+
+app.use("/bands", bandRouter)
+
+app.use("/presentations", presentationRouter)
+
