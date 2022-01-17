@@ -46,6 +46,10 @@ export const schedulePresentation = async(req:Request, res:Response):Promise<voi
             throw new Error("Horário de término não permitido!")
         }
 
+        if(end_time< start_time+1){
+            throw new Error("Horário de término não permitido!")
+        }
+
        
 
         const schedule : Schedule = {
